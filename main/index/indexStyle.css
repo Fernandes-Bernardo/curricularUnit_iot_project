@@ -1,565 +1,649 @@
-/* Variáveis CSS - SUA PALETA DE CORES ORIGINAL, ADAPTADA PARA OS GRADIENTES */
-        :root {
-            --azul-claro-quase-branco: #eff3ff;
-            --azul-claro: #c6dbef;
-            --azul-vibrante: #6baed6;
-            /* Usado como cor base para gradientes e destaques */
-            --azul-escuro-sobrio: #3182bd;
-            /* Usado como cor mais escura para gradientes */
-            --azul-muito-escuro: #08519c;
-
-            --cor-texto-principal: #333;
-            --cor-texto-claro: white;
-            /* Para texto sobre fundos escuros */
-            --cor-borda-card: rgba(0, 0, 0, 0.05);
-
-            /* Gradientes adaptados da sua paleta */
-            --gradient-primario: linear-gradient(135deg, var(--azul-escuro-sobrio) 0%, var(--azul-muito-escuro) 100%);
-            --gradient-secundario: linear-gradient(45deg, var(--azul-vibrante), var(--azul-escuro-sobrio));
-            /* Um gradiente mais sutil com suas cores */
-
-            /* Cor para o cabeçalho ao rolar - um tom mais opaco do gradiente */
-            --cor-blur-background-header: rgba(49, 130, 189, 0.95);
-            /* Azul escuro com opacidade */
-
-            /* Padrão de fundo original */
-            --cor-linha-fundo: rgba(49, 130, 189, 0.15);
-            /* Usando um tom de azul com opacidade */
-        }
-
-        /* Reset Básico */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            color: var(--cor-texto-principal);
-            background-color: var(--azul-claro-quase-branco);
-            /* Fundo geral */
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            overflow-x: hidden;
-
-            /* Fundo com padrão de linhas diagonais, fixo */
-            background-image: repeating-linear-gradient(45deg,
-                    var(--cor-linha-fundo) 0,
-                    var(--cor-linha-fundo) 2px,
-                    transparent 2px,
-                    transparent 40px);
-            background-attachment: fixed;
-            background-position: center;
-        }
-
-        /* Cabeçalho Principal */
-        .main-header {
-            background: var(--gradient-primario);
-            /* Gradiente da sua paleta */
-            color: var(--cor-texto-claro);
-            padding: 1.5rem 2rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .logo-placeholder {
-            min-width: 85px;
-            height: 55px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Estilo para a imagem do logo em si */
-        .company-logo {
-            max-width: 100%;
-            max-height: 100%;
-            height: auto;
-            display: block;
-        }
-
-
-        /* Navegação Principal */
-        .main-nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2.5rem;
-        }
-
-        .main-nav ul li a {
-            color: var(--cor-texto-claro);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1em;
-            padding: 5px 0;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .main-nav ul li a:hover {
-            transform: translateY(-2px);
-        }
-
-        .main-nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: var(--azul-vibrante);
-            /* Usando azul vibrante para o underline */
-            transition: width 0.3s ease;
-        }
-
-        /* Estado "active" dinâmico */
-        .main-nav ul li a.active::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: var(--gradient-primario);
-            /* Fundo com seu gradiente principal */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--cor-texto-claro);
-            position: relative;
-            overflow: hidden;
-            margin-top: -95px;
-            /* Compensa a altura do header fixo para ocupar 100vh real */
-            padding-top: 95px;
-            /* Adiciona padding para o conteúdo não ficar por baixo do header */
-        }
-
-        .hero::before {
-            /* Padrão de fundo animado */
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            animation: float 20s ease-in-out infinite;
-            z-index: 1;
-            /* Abaixo do conteúdo */
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translate(-50%, -50%) rotate(0deg);
-            }
-
-            50% {
-                transform: translate(-50%, -50%) rotate(180deg);
-            }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            /* Acima do fundo animado */
-            max-width: 800px;
-            padding: 0 2rem;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: slideInUp 1s ease-out;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            animation: slideInUp 1s ease-out 0.2s both;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: var(--gradient-secundario);
-            /* Gradiente com suas cores */
-            color: var(--cor-texto-claro);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            animation: slideInUp 1s ease-out 0.4s both;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Seções de Conteúdo Normais (depois da hero) */
-        .content-section {
-            padding: 5rem 0;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-left: 2rem;
-            padding-right: 2rem;
-            background-color: rgba(255, 255, 255, 0.75);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-        }
-
-        .content-section:first-of-type {
-            margin-top: 30px;
-        }
-
-        .content-section h2 {
-            font-size: 2.5em;
-            font-weight: 700;
-            margin-bottom: 35px;
-            text-align: center;
-            background: var(--gradient-primario);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .content-section h3 {
-            font-size: 1.8em;
-            font-weight: 600;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            color: var(--azul-escuro-sobrio);
-            border-bottom: 2px solid var(--azul-claro);
-            padding-bottom: 10px;
-        }
-
-        .content-section p {
-            margin-bottom: 1.2em;
-            font-size: 1.1em;
-            color: var(--cor-texto-principal);
-        }
-
-        /* Seção Missão, Visão */
-        .mission-vision-section {
-            display: flex;
-            justify-content: space-around;
-            gap: 30px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .mv-item {
-            flex: 1;
-            min-width: 300px;
-            background-color: var(--azul-claro-quase-branco);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .mv-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-secundario);
-        }
-
-        .mv-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .mv-item h4 {
-            font-size: 1.6em;
-            margin-bottom: 18px;
-            font-weight: 700;
-            background: var(--gradient-primario);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .mv-item p {
-            font-size: 1em;
-            color: #555;
-            margin-bottom: 0;
-        }
-
-        /* Estilo para a seção "O Que Nos Diferencia" - Grid de Cards */
-        .differentiators-grid {
-            display: grid;
-            /* Auto-fit para 3 colunas, mas ajusta para 2 se não houver espaço suficiente */
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-            /* Centraliza a faixa de colunas no container */
-            justify-content: center;
-        }
-
-
-        .differentiator-card {
-            background: var(--azul-claro-quase-branco);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .differentiator-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: var(--gradient-secundario);
-        }
-
-        .differentiator-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .differentiator-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            display: block;
-            color: var(--azul-escuro-sobrio);
-        }
-
-        .differentiator-card h4 {
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-            color: var(--azul-muito-escuro);
-            font-weight: 700;
-        }
-
-        .differentiator-card p {
-            font-size: 1em;
-            color: #555;
-            margin-bottom: 0;
-        }
-
-
-        /* Rodapé */
-        .footer {
-            background: var(--azul-muito-escuro);
-            color: var(--cor-texto-claro);
-            text-align: center;
-            padding: 2.5rem 2rem;
-            font-size: 0.95em;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .footer-social a {
-            color: var(--cor-texto-claro);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.1em;
-            transition: color 0.3s ease;
-        }
-
-        .footer-social a .fab {
-            font-size: 1.5em;
-        }
-
-        .footer-social a:hover {
-            color: var(--azul-vibrante);
-        }
-
-        /* Animações de Scroll */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsividade */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .content-section {
-                padding: 40px 15px;
-            }
-
-            .mission-vision-section {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .mv-item {
-                width: 90%;
-            }
-
-            /* Diferenciadores em 2 colunas no tablet */
-            .differentiators-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
-        }
-
-        @media (max-width: 768px) {
-            .main-header {
-                padding: 1rem 1.5rem;
-            }
-
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .header-left {
-                margin-bottom: 0.5rem;
-                justify-content: center;
-                width: 100%;
-            }
-
-            .company-name {
-                font-size: 1.8em;
-            }
-
-            .main-nav ul {
-                flex-direction: column;
-                gap: 0.8rem;
-                width: 100%;
-                align-items: center;
-            }
-
-            .hero {
-                padding-top: 80px;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1em;
-            }
-
-            .cta-button {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9em;
-            }
-
-            .content-section {
-                padding: 30px 10px;
-                margin: 20px 10px;
-            }
-
-            .content-section h2 {
-                font-size: 1.8em;
-            }
-
-            .content-section h3 {
-                font-size: 1.5em;
-                margin-top: 30px;
-            }
-
-            /* Diferenciadores em 1 coluna no mobile */
-            .differentiators-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo-placeholder {
-                min-width: 65px;
-                height: 40px;
-                padding: 0.6rem 1rem;
-            }
-
-            .company-name {
-                font-size: 1.4em;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 0.9em;
-            }
-
-            .content-section p {
-                font-size: 0.95em;
-            }
-
-            .mv-item {
-                min-width: unset;
-            }
-
-            .footer-social a {
-                font-size: 1em;
-            }
-
-            .footer-social a .fab {
-                font-size: 1.3em;
-            }
-        }
+
+:root {
+    --azul-claro-quase-branco: #eff3ff;
+    --azul-claro: #c6dbef;
+    --azul-vibrante: #6baed6;
+
+    --azul-escuro-sobrio: #3182bd;
+
+    --azul-muito-escuro: #08519c;
+
+    --cor-texto-principal: #333;
+    --cor-texto-claro: white;
+    --cor-borda-card: rgba(0, 0, 0, 0.05);
+
+
+    --gradient-primario: linear-gradient(135deg, var(--azul-escuro-sobrio) 0%, var(--azul-muito-escuro) 100%);
+    --gradient-secundario: linear-gradient(45deg, var(--azul-vibrante), var(--azul-escuro-sobrio));
+
+
+    --cor-blur-background-header: rgba(49, 130, 189, 1);
+
+
+
+    --cor-linha-fundo: rgba(49, 130, 189, 0.15);
+
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
+    color: var(--cor-texto-principal);
+    background-color: var(--azul-claro-quase-branco);
+    /* Fundo geral */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+
+    background-image: repeating-linear-gradient(45deg,
+            var(--cor-linha-fundo) 0,
+            var(--cor-linha-fundo) 2px,
+            transparent 2px,
+            transparent 40px);
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* Cabeçalho Principal */
+.main-header {
+    
+    background: linear-gradient(135deg, rgba(49, 130, 189, 0.5) 0%, rgba(8, 81, 156, 0.7) 100%);
+    color: var(--cor-texto-claro);
+    padding: 1.5rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logo-placeholder {
+    min-width: 85px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilo para a imagem do logo em si */
+.company-logo {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* Navegação Principal */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+}
+
+.main-nav ul li a {
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 5px 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.main-nav ul li a:hover {
+    transform: translateY(-2px);
+}
+
+.main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: var(--azul-vibrante);
+    transition: width 0.3s ease;
+}
+
+/* Estado "active" dinâmico */
+.main-nav ul li a.active::after {
+    width: 100%;
+}
+
+.hero-full-screen {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: var(--cor-texto-claro);
+    overflow: hidden;
+    margin-top: -95px;
+    padding-top: 95px;
+    padding-bottom: 3rem;
+
+
+    background-image: url('../pictures/gifTech.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: zoomPan 30s infinite alternate ease-in-out;
+
+}
+
+
+@keyframes zoomPan {
+    0% {
+        background-size: 100%;
+        background-position: center center;
+    }
+
+    100% {
+        background-size: 110%;
+        background-position: 60% 40%;
+    }
+}
+
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.hero-content-sobre-nos {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content-sobre-nos h1 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    animation: slideInUp 1s ease-out;
+}
+
+.hero-content-sobre-nos p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    animation: slideInUp 1s ease-out 0.2s both;
+}
+
+/* Estilos para as Estatísticas */
+.stats-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+    background: rgba(0, 0, 0, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--cor-texto-claro);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    padding: 1rem;
+    flex: 1;
+    min-width: 180px;
+    max-width: 25%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.stat-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stat-item .stat-number {
+    font-size: 3em;
+    font-weight: 700;
+    color: var(--azul-vibrante);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px rgba(107, 174, 214, 0.5);
+    /* Leve brilho */
+}
+
+.stat-item .stat-description {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Seções de Conteúdo */
+.content-section {
+    padding: 5rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.content-section:first-of-type {
+    margin-top: 30px;
+}
+
+.content-section h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 35px;
+    text-align: center;
+    background: var(--gradient-primario);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.content-section h3 {
+    font-size: 1.8em;
+    font-weight: 600;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: var(--azul-escuro-sobrio);
+    border-bottom: 2px solid var(--azul-claro);
+    padding-bottom: 10px;
+}
+
+.content-section p {
+    margin-bottom: 1.2em;
+    font-size: 1.1em;
+    color: var(--cor-texto-principal);
+}
+
+/* Seção Missão, Visão */
+.mission-vision-section {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.mv-item {
+    flex: 1;
+    min-width: 300px;
+    background-color: var(--azul-claro-quase-branco);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mv-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-secundario);
+}
+
+.mv-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.mv-item h4 {
+    font-size: 1.6em;
+    margin-bottom: 18px;
+    font-weight: 700;
+    background: var(--gradient-primario);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.mv-item p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 0;
+}
+
+/* Estilo para a seção "O Que Nos Diferencia" - Grid de Cards */
+.differentiators-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    justify-content: center;
+}
+
+
+.differentiator-card {
+    background: var(--azul-claro-quase-branco);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.differentiator-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: var(--gradient-secundario);
+}
+
+.differentiator-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.differentiator-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    display: block;
+    color: var(--azul-escuro-sobrio);
+}
+
+.differentiator-card h4 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: var(--azul-muito-escuro);
+    font-weight: 700;
+}
+
+.differentiator-card p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 0;
+}
+
+
+/* Rodapé */
+.footer {
+    background: var(--azul-muito-escuro);
+    color: var(--cor-texto-claro);
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-size: 0.95em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-social a {
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.footer-social a .fab {
+    font-size: 1.5em;
+}
+
+.footer-social a:hover {
+    color: var(--azul-vibrante);
+}
+
+/* Animações de Scroll */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .hero-full-screen h1 {
+        font-size: 3rem;
+    }
+
+    .hero-full-screen p {
+        font-size: 1.2rem;
+    }
+
+    .stats-container {
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+    }
+
+    .stat-item {
+        min-width: 150px;
+        max-width: 50%;
+    }
+
+    .stat-item .stat-number {
+        font-size: 2.5em;
+    }
+
+    .stat-item .stat-description {
+        font-size: 0.8em;
+    }
+
+    .content-section {
+        padding: 40px 15px;
+    }
+
+    .mission-vision-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mv-item {
+        width: 90%;
+    }
+
+    /* Diferenciadores em 2 colunas no tablet */
+    .differentiators-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        padding: 1rem 1.5rem;
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .header-left {
+        margin-bottom: 0.5rem;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .company-name {
+        font-size: 1.8em;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 0.8rem;
+        width: 100%;
+        align-items: center;
+    }
+
+    .hero-full-screen {
+        padding-top: 80px;
+        /* Ajusta o padding para o header menor */
+    }
+
+    .hero-content-sobre-nos h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-content-sobre-nos p {
+        font-size: 1.1rem;
+    }
+
+    .stats-container {
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 1rem;
+    }
+
+    .stat-item {
+        min-width: unset;
+        max-width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .stat-item .stat-number {
+        font-size: 2.2em;
+    }
+
+    .stat-item .stat-description {
+        font-size: 0.9em;
+    }
+
+    .content-section {
+        padding: 30px 10px;
+        margin: 20px 10px;
+    }
+
+    .content-section h2 {
+        font-size: 1.8em;
+    }
+
+    .content-section h3 {
+        font-size: 1.5em;
+        margin-top: 30px;
+    }
+
+    /* Diferenciadores em 1 coluna no mobile */
+    .differentiators-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-placeholder {
+        min-width: 65px;
+        height: 40px;
+        padding: 0.6rem 1rem;
+    }
+
+    .company-name {
+        font-size: 1.4em;
+    }
+
+    .hero-content-sobre-nos h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content-sobre-nos p {
+        font-size: 0.9em;
+    }
+
+    .content-section p {
+        font-size: 0.95em;
+    }
+
+    .mv-item {
+        min-width: unset;
+    }
+
+    .footer-social a {
+        font-size: 1em;
+    }
+
+    .footer-social a .fab {
+        font-size: 1.3em;
+    }
+
+    .stat-item .stat-number {
+        font-size: 1.8em;
+    }
+
+    .stat-item .stat-description {
+        font-size: 0.75em;
+    }
+}
