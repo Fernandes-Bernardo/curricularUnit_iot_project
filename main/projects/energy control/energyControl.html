@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Fellas - Plataforma Web para Gestão de Energia</title>
+
+    <link rel="icon" type="image/png" href="../../pictures/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="energyControlStyle.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content">
+            <div class="header-left">
+                <div class="logo-placeholder">
+                    <img src="../../pictures/logo.png" alt="Cloud Fellas" class="company-logo">
+                </div>
+                <h1 class="company-name">Cloud Fellas</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../../index/index.html" data-nav-page="home">Sobre Nós</a></li>
+                    <li><a href="../projects.html" data-nav-page="projects">Projetos</a></li>
+                    <li><a href="../../contact/contact.html" data-nav-page="contact">Contato</a></li>
+                    <li><a href="../../careers/careers.html" data-nav-page="support">Trabalhe Conosco</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="project-detail-hero">
+            <div class="project-hero-content">
+                <h1>Plataforma Web para Gestão de Energia</h1>
+                <p>Desenvolvimento de uma plataforma intuitiva e robusta para monitoramento, análise e otimização do consumo de energia em edificações e indústrias, visando a eficiência e a sustentabilidade.</p>
+            </div>
+        </section>
+
+        <section class="project-detail-content">
+            <h3>Visão Geral do Projeto</h3>
+            <p>Este projeto foca na criação de uma plataforma web completa para gerenciar o consumo de energia de forma inteligente. Nosso objetivo foi capacitar empresas e proprietários a visualizarem seus padrões de consumo, identificarem desperdícios e implementarem estratégias para reduzir custos e o impacto ambiental.</p>
+            <p>A plataforma integra dados de medidores inteligentes e sensores, oferecendo dashboards personalizáveis, relatórios detalhados e alertas em tempo real. A arquitetura é escalável, suportando desde pequenas empresas até grandes complexos industriais.</p>
+
+            <h3>Resultados e Impacto</h3>
+            <p>A implementação da Plataforma Web de Gestão de Energia resultou em uma economia média de <strong>18% nos custos de energia</strong> para nossos clientes. A visibilidade aprimorada permitiu a identificação de picos de consumo e a otimização de horários de operação de equipamentos, levando a uma redução de <strong>20% nas emissões de carbono</strong> associadas ao consumo de energia.</p>
+            <p>Os usuários relataram maior controle e compreensão sobre seus gastos energéticos, facilitando a tomada de decisões estratégicas para eficiência energética. A interface amigável e os recursos de análise preditiva são altamente valorizados.</p>
+
+            <img src="../../pictures/energyPic.png" alt="Interface da plataforma de gestão de energia em um computador">
+
+            <h3>Tecnologias Utilizadas</h3>
+            <ul>
+                <li>Frameworks web modernos (e.g., React, Angular, Vue.js para o frontend)</li>
+                <li>Backend robusto com APIs RESTful (e.g., Node.js, Python/Django, Ruby on Rails)</li>
+                <li>Banco de dados de séries temporais (e.g., InfluxDB) e relacionais (e.g., PostgreSQL)</li>
+                <li>Serviços de nuvem para escalabilidade e segurança (e.g., Google Cloud Platform, AWS)</li>
+                <li>Ferramentas de visualização de dados (e.g., D3.js, Chart.js)</li>
+            </ul>
+
+            <h3>Desafios Superados</h3>
+            <p>Um desafio significativo foi a integração com uma variedade de sistemas de medição de energia legados e proprietários. Desenvolvemos módulos de adaptadores flexíveis para garantir a compatibilidade e a ingestão de dados de diversas fontes. A garantia da segurança dos dados de consumo, que podem ser sensíveis, foi abordada com criptografia de ponta a ponta e auditorias de segurança regulares.</p>
+
+        </section>
+    </main>
+
+    <a href="../projects.html" class="back-to-projects-floating">
+        <i class="fas fa-arrow-left"></i> Voltar aos Projetos
+    </a>
+
+    <footer class="footer">
+        <p>© 2025 Cloud Fellas. Todos os direitos reservados. Inovação em automação residencial.</p>
+        <div class="footer-social">
+            <a href="https://github.com/Fernandes-Bernardo/curricularUnit_iot_project" target="_blank" aria-label="Repositório do GitHub">
+                <i class="fab fa-github"></i> Nosso GitHub
+            </a>
+        </div>
+    </footer>
+
+    <script src="energyControlJS.js"></script>
+
+</body>
+</html>

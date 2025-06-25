@@ -1,0 +1,539 @@
+/* Variáveis CSS (Manter consistência com as outras páginas) */
+        :root {
+            --azul-claro-quase-branco: #eff3ff;
+            --azul-claro: #c6dbef;
+            --azul-vibrante: #6baed6;
+            --azul-escuro-sobrio: #3182bd;
+            --azul-muito-escuro: #08519c;
+
+            --cor-texto-principal: #333;
+            --cor-texto-claro: white;
+            --cor-borda-card: rgba(0, 0, 0, 0.05);
+
+            --gradient-primario: linear-gradient(135deg, var(--azul-escuro-sobrio) 0%, var(--azul-muito-escuro) 100%);
+            --gradient-secundario: linear-gradient(45deg, var(--azul-vibrante), var(--azul-escuro-sobrio));
+
+            --cor-blur-background-header: rgba(49, 130, 189, 0.95);
+            --cor-linha-fundo: rgba(49, 130, 189, 0.15);
+        }
+
+        /* Reset Básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--cor-texto-principal);
+            background-color: var(--azul-claro-quase-branco);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: repeating-linear-gradient(
+                45deg,
+                var(--cor-linha-fundo) 0,
+                var(--cor-linha-fundo) 2px,
+                transparent 2px,
+                transparent 40px
+            );
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        /* Cabeçalho Principal (Replicado do index.html para consistência) */
+        .main-header {
+            background: var(--gradient-primario);
+            color: var(--cor-texto-claro);
+            padding: 1.5rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo-placeholder {
+            min-width: 85px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Estilo para a imagem do logo em si */
+        .company-logo {
+            max-width: 100%;
+            max-height: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .main-nav ul li a {
+            color: var(--cor-texto-claro);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .main-nav ul li a:hover {
+            transform: translateY(-2px);
+        }
+
+        .main-nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--azul-vibrante);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav ul li a.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section (Específica para a página de Carreiras) */
+        .hero {
+            height: 60vh; /* Altura um pouco menor para hero de páginas internas */
+            background: var(--gradient-primario);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--cor-texto-claro);
+            position: relative;
+            overflow: hidden;
+            margin-top: 95px; /* Compensa a altura do header fixo */
+            padding-top: 50px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+            50% { transform: translate(-50%, -50%) rotate(180deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            animation: slideInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            animation: slideInUp 1s ease-out 0.2s both;
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Seção de Conteúdo para Carreiras (main content) */
+        .content-section {
+            padding: 5rem 0;
+            max-width: 1200px;
+            margin: 30px auto; /* Ajusta margin-top para ficar abaixo da hero */
+            padding-left: 2rem;
+            padding-right: 2rem;
+            background-color: rgba(255, 255, 255, 0.75);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .content-section h2 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 35px;
+            text-align: center;
+            background: var(--gradient-primario);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-intro-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            font-size: 1.1em;
+            color: var(--cor-texto-principal);
+        }
+
+        /* Seção de Cultura e Benefícios */
+        .culture-benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .culture-card, .benefit-card {
+            background-color: var(--azul-claro-quase-branco);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .culture-card::before, .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-secundario);
+        }
+
+        .culture-card:hover, .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .culture-card i, .benefit-card i {
+            font-size: 3em;
+            color: var(--azul-escuro-sobrio);
+            margin-bottom: 1rem;
+        }
+
+        .culture-card h3, .benefit-card h3 {
+            font-size: 1.8em;
+            color: var(--azul-muito-escuro);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .culture-card p, .benefit-card p {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        /* Seção de Vagas Abertas */
+        .job-listings {
+            margin-top: 3rem;
+        }
+
+        .job-listing-card {
+            background-color: var(--azul-claro-quase-branco);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .job-listing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--azul-vibrante);
+        }
+
+        .job-listing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .job-listing-card h3 {
+            font-size: 1.7em;
+            color: var(--azul-muito-escuro);
+            margin-bottom: 0.8rem;
+        }
+
+        .job-listing-card p {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+            font-size: 0.95em;
+            color: #666;
+        }
+
+        .job-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .job-detail-item i {
+            color: var(--azul-vibrante);
+        }
+
+        .apply-button {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background: var(--gradient-secundario);
+            color: var(--cor-texto-claro);
+            border: none;
+            border-radius: 50px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-top: 1.5rem;
+        }
+
+        .apply-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .no-jobs-message {
+            text-align: center;
+            font-size: 1.2em;
+            color: #777;
+            padding: 2rem;
+            border: 1px dashed var(--azul-claro);
+            border-radius: 10px;
+            margin-top: 2rem;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .send-resume-cta {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: var(--azul-claro);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            color: var(--azul-escuro-sobrio);
+        }
+
+        .send-resume-cta h3 {
+            font-size: 1.8em;
+            margin-bottom: 1rem;
+            color: var(--azul-muito-escuro);
+        }
+
+        .send-resume-cta p {
+            font-size: 1.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .send-resume-cta .email-link {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background: var(--gradient-primario);
+            color: var(--cor-texto-claro);
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .send-resume-cta .email-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+
+        /* Rodapé (Replicado do index.html para consistência) */
+        .footer {
+            background: var(--azul-muito-escuro);
+            color: var(--cor-texto-claro);
+            text-align: center;
+            padding: 2.5rem 2rem;
+            font-size: 0.95em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px; /* Garante espaço após a última seção */
+        }
+
+        .footer-social a {
+            color: var(--cor-texto-claro);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social a .fab {
+                font-size: 1.5em;
+        }
+
+        .footer-social a:hover {
+            color: var(--azul-vibrante);
+        }
+
+        /* Animações de Scroll (compartilhadas) */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsividade (compartilhada e ajustada para carreiras) */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .content-section {
+                padding: 40px 15px;
+            }
+            .culture-benefits-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-header {
+                padding: 1rem 1.5rem;
+            }
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .header-left {
+                margin-bottom: 0.5rem;
+                justify-content: center;
+                width: 100%;
+            }
+            .company-name {
+                font-size: 1.8em;
+            }
+            .main-nav ul {
+                flex-direction: column;
+                gap: 0.8rem;
+                width: 100%;
+                align-items: center;
+            }
+            .hero {
+                padding-top: 80px;
+                height: 50vh; /* Ainda menor no mobile */
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 0.9em;
+            }
+            .content-section {
+                padding: 30px 10px;
+                margin: 20px 10px;
+            }
+            .content-section h2 {
+                font-size: 1.8em;
+            }
+            .culture-benefits-grid {
+                flex-direction: column;
+                gap: 2rem;
+                grid-template-columns: 1fr; /* Uma coluna no mobile */
+            }
+            .culture-card, .benefit-card {
+                min-width: unset;
+                width: 100%;
+                padding: 1.5rem;
+            }
+            .job-listing-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-placeholder {
+                min-width: 65px;
+                height: 40px;
+                padding: 0.6rem 1rem;
+            }
+            .company-name {
+                font-size: 1.4em;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 0.85em;
+            }
+            .content-section p {
+                font-size: 0.95em;
+            }
+            .footer-social a {
+                font-size: 1em;
+            }
+            .footer-social a .fab {
+                font-size: 1.3em;
+            }
+        }

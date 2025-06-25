@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Fellas - Monitoramento IoT de Caixa d’Água Residencial</title>
+
+    <link rel="icon" type="image/png" href="../../pictures/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="waterControl.css">
+
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content">
+            <div class="header-left">
+                <div class="logo-placeholder">
+                    <img src="../../pictures/logo.png" alt="Cloud Fellas" class="company-logo">
+                </div>
+                <h1 class="company-name">Cloud Fellas</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../../index/index.html" data-nav-page="home">Sobre Nós</a></li>
+                    <li><a href="../projects.html" data-nav-page="projects">Projetos</a></li>
+                    <li><a href="../../contact/contact.html" data-nav-page="contact">Contato</a></li>
+                    <li><a href="../../careers/careers.html" data-nav-page="support">Trabalhe Conosco</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="project-detail-hero">
+            <div class="project-hero-content">
+                <h1>Monitoramento IoT de Caixa d’Água Residencial</h1>
+                <p>Sistema com sensores inteligentes para controle do nível, detecção de vazamentos e uso eficiente da água em tempo real.</p>
+            </div>
+        </section>
+
+        <section class="project-detail-content">
+            <h3>Visão Geral do Projeto</h3>
+            <p>Este projeto visa desenvolver e implementar um sistema de monitoramento inteligente para caixas d’água residenciais, utilizando tecnologia IoT. O principal objetivo é fornecer aos usuários informações precisas e em tempo real sobre o nível da água, e garantir que a água esteja sempre limpa e apta para consumo.</p>
+            <p>O sistema consiste em sensores instalados na caixa d’água que medem o nível da água e medem o pH da água. Os dados coletados são enviados para uma plataforma na nuvem via protocolo MQTT, onde são processados e disponibilizados aos usuários através de um aplicativo móvel intuitivo.</p>
+
+            <h3>Funcionalidades Principais</h3>
+            <ul>
+                <li><strong>Monitoramento do Nível da Água em Tempo Real:</strong> Acompanhe o nível da água da sua caixa d’água a qualquer momento, de qualquer lugar.</li>
+                <li><strong>Alertas de Nível Crítico:</strong> Receba notificações quando o nível da água estiver baixo, evitando surpresas e garantindo o abastecimento.</li>
+                <li><strong>Filtro anti impurezas:</strong> Antes da água chegar a caixa, ela passará por mais um filtro, para garantir a pureza.</li>
+            </ul>
+
+            <img src="../../pictures/appMovel.png" alt="Interface de um aplicativo de monitoramento de caixa d'água em um smartphone">
+
+            <h3>Tecnologias Utilizadas</h3>
+            <ul>
+                <li>Sensores de nível</li>
+                <li>Módulo de comunicação IoT (MQTT)</li>
+                <li>Plataforma de nuvem para IoT Google Cloud IoT Platform</li>
+                <li>Banco de dados para armazenamento de séries temporais</li>
+                <li>Desenvolvimento de aplicativo móvel (Android e iOS) com frameworks nativos ou híbridos (React Native, Flutter)</li>
+                <li>ESP32 para comunicação entre os sensores, a nuvem e o aplicativo</li>
+            </ul>
+
+            <h3>Benefícios do Sistema</h3>
+            <ul>
+                <li><strong>Segurança:</strong> Se por algum motivo o pH da água estiver fora do seguro, você será notificado no app móvel.</li>
+                <li><strong>Comodidade e Controle:</strong> Acompanhe o status da sua caixa d’água de onde estiver, garantindo o abastecimento e evitando preocupações.</li>
+                <li><strong>Sustentabilidade:</strong> O uso eficiente da água contribui para a preservação desse recurso natural.</li>
+            </ul>
+
+            <div class="tinkercad-link">
+                <a href="https://www.tinkercad.com/things/lA6G3N4p6hF" target="_blank" aria-label="Simulação do projeto no TinkerCAD">
+                    <i class="fas fa-microchip"></i> Ver Simulação no TinkerCAD
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <a href="../projects.html" class="back-to-projects-floating">
+        <i class="fas fa-arrow-left"></i> Voltar aos Projetos
+    </a>
+
+    <footer class="footer">
+        <p>© 2025 Cloud Fellas. Todos os direitos reservados. Inovação em automação residencial.</p>
+        <div class="footer-social">
+            <a href="https://github.com/Fernandes-Bernardo/curricularUnit_iot_project" target="_blank" aria-label="Repositório do GitHub">
+                <i class="fab fa-github"></i> Nosso GitHub
+            </a>
+        </div>
+    </footer>
+
+    <script src="waterControl.js"></script>
+
+</body>
+</html>
